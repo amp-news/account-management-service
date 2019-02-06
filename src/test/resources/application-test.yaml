@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    platform    data: classpath:/db/data-test.sql: test
+    url: jdbc:postgresql://localhost:5432/ACCOUNT_MANAGEMENT_TEST
+    username: test
+    password: test
+    initialization-mode: always
+    schema: classpath:/db/schema-test.sql

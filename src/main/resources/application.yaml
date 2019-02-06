@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: accounts-service
+
+  jpa:
+    database: POSTGRESQL
+    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+    hibernate:
+      ddl-auto: none
+      use-new-id-generator-mappings: false
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        default_schema: public
+        jdbc:
+          lob:
+            non_contextual_creation: true
+
+  rabbitmq:
+    host: ec2-18-202-72-6.eu-west-1.compute.amazonaws.com
+    port: 5672
+    username: guest
+    password: guest
+
+  data:
+    rest:
+      default-media-type: APPLICATION_JSON_UTF8
+
+  jackson:
+    default-property-inclusion: NON_NULL
+    serialization:
+      write-dates-as-timestamps: false
+
+
+
+
+

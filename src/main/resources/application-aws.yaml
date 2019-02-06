@@ -1,0 +1,29 @@
+server:
+  port: 8080
+
+eureka:
+ client:
+  serviceUrl:
+   defaultZone: ${EUREKA_URI:http://ip-172-31-1-174.eu-west-1.compute.internal:8761/eureka}
+  healthcheck:
+    enabled: true
+
+ instance:
+  lease-expiration-duration-in-seconds: 90
+  statusPageUrlPath: /actuator/info
+  healthCheckUrlPath: /actuator/health
+
+spring:
+  datasource:
+    platform: aws
+    url: jdbc:postgresql://amp-postgres.cdfm1czs4csx.eu-west-1.rds.amazonaws.com:5432/account_management
+    username: admin
+    password: Znjybcnfhr
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      connection-timeout: 60000
+      maximum-pool-size: 50
+    initialization-mode: never
+
+  transaction:
+    rollback-on-commit-failure: true

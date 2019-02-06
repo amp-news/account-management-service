@@ -1,0 +1,32 @@
+server:
+  port: 8082
+  tomcat:
+    max-connections: 100
+
+eureka:
+ client:
+  serviceUrl:
+   defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+  healthcheck:
+    enabled: true
+
+ instance:
+  lease-expiration-duration-in-seconds: 90
+  statusPageUrlPath: /actuator/info
+  healthCheckUrlPath: /actuator/health
+
+spring:
+  datasource:
+    platform: main
+    url: jdbc:postgresql://localhost:5432/ACCOUNT_MANAGEMENT
+    username: admin
+    password: Znjybcnfhr
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      connection-timeout: 60000
+      maximum-pool-size: 10
+    initialization-mode: never
+    schema: classpath:/db/schema.sql
+
+  transaction:
+    rollback-on-commit-failure: true
